@@ -49,7 +49,7 @@
     group: "root"
   with_items: "{{ filtered_neutron_services }}"
   notify:
-    - Reload systemd daemon
+    - Run systemctl daemon reload
 
 - name: Place the systemd init script
   config_template:
@@ -62,4 +62,4 @@
     config_type: "ini"
   with_items: "{{ filtered_neutron_services }}"
   notify:
-    - Reload systemd daemon
+    - Run systemctl daemon reload
